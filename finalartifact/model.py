@@ -38,10 +38,10 @@ test_X = test_X.reshape((test_X.shape[0], 1, test_X.shape[1]))
 
 #atcual model building
 from keras.models import Sequential
-from keras.layers import LSTM, Dense
+from keras.layers import LSTM, Dense, Activation
 
 model = Sequential()
-model.add(LSTM(50, input_shape=(train_X.shape[1], train_X.shape[2])))
+model.add(LSTM(50, input_shape=(train_X.shape[1], train_X.shape[2]), activation="relu"))
 model.add(Dense(1))
 model.compile(loss='mae', optimizer='adam')
 
