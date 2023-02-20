@@ -43,6 +43,7 @@ import featureengineering as fe
 
 def prepdata(raw, trainon, predictfor):
     rawengineered = fe.getengineeredfeatures(raw)
+    featurenum = len(rawengineered.axes[1])
 
     scaler = MinMaxScaler()
 
@@ -52,7 +53,7 @@ def prepdata(raw, trainon, predictfor):
     preppeddata = series_to_supervised(data, trainon, predictfor) #train on the last 7 days to predict the next 1 days
     dropcols = []
     for i in range(0, predictfor):
-        for j in range((12*trainon+1)+(i*12), (12*trainon+12)+(i*12)):
+        for j in range((featurenum*trainon+1)+(i*featurenum), (featurenum*(trainon+1))+(i*featurenum)):
             dropcols.append(j)
     print(dropcols)
     preppeddata.drop(preppeddata.columns[dropcols], axis = 1, inplace=True)
