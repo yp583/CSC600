@@ -55,7 +55,6 @@ def prepdata(raw, trainon, predictfor):
     for i in range(0, predictfor):
         for j in range((featurenum*trainon+1)+(i*featurenum), (featurenum*(trainon+1))+(i*featurenum)):
             dropcols.append(j)
-    print(dropcols)
     preppeddata.drop(preppeddata.columns[dropcols], axis = 1, inplace=True)
 
     
