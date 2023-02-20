@@ -4,7 +4,7 @@ import datagathering as dg
 
 aapl = dg.gethist("AAPL", "20y")
 
-data = fe.addengineeredfeatures(aapl)
+data = fe.getengineeredfeatures(aapl)
 
 corr_matrix = data.corr()
 
