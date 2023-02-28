@@ -8,11 +8,11 @@ This project aims to build a tool, namely a machine learning model to provide th
 
 ## Overview
 
-In this project, I create an AI model to predict stock prices for the future. To start, I collect [stock data](#the-data) from Yahoo Finance using the [yfinance library](https://github.com/ranaroussi/yfinance). Using this data, I also create some helpful indicators that I believe would benefit the prediction capabilities of my model with a technique called [feature engineering](#what-is-feature-engineering). Professional traders do this as well, using indicators like [SMA](https://www.investopedia.com/terms/s/sma.asp) to aid in their trading and investing strategies. I then use this data to train an AI model, which then makes predictions for future stock prices. 
+In this project, I create an AI model to predict stock prices for the future. To start, I collect [stock data](#the-data) from Yahoo Finance using the [yfinance API](https://github.com/ranaroussi/yfinance). Using this data, I also create some helpful indicators that I believe would benefit the prediction capabilities of my model with a technique called [feature engineering](#what-is-feature-engineering). Professional traders do this as well, using indicators like [SMA](https://www.investopedia.com/terms/s/sma.asp) to aid in their trading and investing strategies. I then use this data to train an AI model, which then makes predictions for future stock prices. 
 
 ### The Data
 ---
-From Yahoo Finance, or the yfinance library, I am able to get the **daily open, close, high, low, and volume** for any individual stock. From an API call, a pandas dataframe like the table below is returned.
+From Yahoo Finance, or the yfinance API, I am able to get the **daily open, close, high, low, and volume** for any individual stock. From an API call, a pandas dataframe like the table below is returned.
 
 | Date | Open     |  Close  |   Low   |   High  |  Volume |
 | ---- | -------- | ------- | ------- | ------- | ------- |
@@ -26,7 +26,7 @@ From Yahoo Finance, or the yfinance library, I am able to get the **daily open, 
 
 ### Feature Engineering
 ---
-Feature engineering is a technique where data/computer scientists construct new data from other data to allow machine learning models to make better predictions. For example, we can calculate a 5 day SMA based off the price of the last 5 days. This is a new feature that our model can be trained off of and that provides new information despite being based off of the same original data being fed into model.
+Feature engineering is a technique where data/computer scientists construct new data from other data to allow machine learning models to make better predictions. For example, we can create a new feature like a 5 day SMA by averageing the price of the last 5 days. This is a new feature that our model can be trained off of and that provides new information or context for our model despite being based off of the same original data.
 
 For this project, the new features that are engineered are as follows:
 
@@ -39,10 +39,10 @@ For this project, the new features that are engineered are as follows:
 
 ### Long Short Term Memory Models (LSTM)
 ---
-*If you don't know what a nueral network is, I recommend you to look at this [reference](https://www.investopedia.com/terms/n/neuralnetwork.asp) which looks at nueral networks in a more financial context.*
+*If you don't know what a neural network is, I recommend that you look at this [reference](https://www.investopedia.com/terms/n/neuralnetwork.asp) which looks at neural networks in a financial context.*
 
-For this project specifically, I use a type of recurrent nueral network called Long Short Term Memory (LSTM) to make prediction for stock prices. A recurrent nueral network is a type of nueral network that uses the output from its previous prediction (ie. its prediction for the day before) to influence its next prediction (ie. its prediction for the next day). 
+For this project specifically, I use a type of recurrent neural network called Long Short Term Memory (LSTM) to make prediction for stock prices. A recurrent neural network is a type of neural network that uses the output from its previous prediction (ie. its prediction for the day before) to influence its next prediction (ie. its prediction for the next day). 
 
-Unfortunately, RNNs have trouble allowing days from the extreme past to influence their predictions for the future. This is where LSTMs come in. The LSTM is a variation of RNNs which allows for the extreme past to influence its predictions, hence the reference to Long Term Memory in the name of LSTM. It also allows recent days to still influence its prediction, balancing between allowing data from the extreme past as well as data from the recent past to make its predictions. 
+Unfortunately, RNNs have trouble allowing days from futher in the past to influence their predictions for the future. This is where LSTMs come in. The LSTM is a variation of RNNs which allows for datapoints much further back in time to influence the model's predictions, hence the reference to Long Term Memory in the name LSTM. It also allows recent days to still influence its prediction, balancing between allowing data from further back in time as well as data from the more recent past to make its predictions. 
 
 For this reason, this project utilized the LSTM model for its predictions as stock prices are generally related to the stock's past, including anything from yesterday to a couple of months ago.
