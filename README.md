@@ -34,7 +34,7 @@ For this project, the new features that are engineered are as follows:
 2. TEMA or [Triple Exponenetial Moving Average](https://www.investopedia.com/ask/answers/041315/why-triple-exponential-moving-average-tema-important-traders-and-analysts.asp#:~:text=The%20triple%20exponential%20moving%20average%20(TEMA)%20is%20a%20modified%20moving,associated%20with%20traditional%20moving%20averages.) (10 day, 20 day, and 100 day)
 3. RSI or [Relative Strength Index](https://www.investopedia.com/terms/r/rsi.asp)
 4. Rolling High and Rolling Low (10 day)
-5. Ratio of S&P500 to Stock Price
+5. Ratio of [S&P500](https://www.investopedia.com/terms/s/sp500.asp) to Stock Price
 6. Ratio of S&P500 RSI to Stock's RSI
 
 ### Long Short Term Memory Models (LSTM)
