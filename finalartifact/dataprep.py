@@ -42,7 +42,7 @@ import datagathering as dg
 import featureengineering as fe
 
 def prepdata(raw, trainon, predictfor):
-    rawengineered = fe.getengineeredfeatures(raw)
+    rawengineered = fe.getengineeredfeatures(raw, [2, 4, 5, 7])
     featurenum = len(rawengineered.axes[1])
 
     scaler = MinMaxScaler()

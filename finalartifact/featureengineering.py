@@ -38,7 +38,7 @@ def mktratioRSI(data, timeperiod):
         mktratio[i] = data[i]/mktRSI[i]
     return mktratio
 
-def getengineeredfeatures(data):
+def getengineeredfeatures(data, drop = []):
     price = data["Close"]
     rh10 = rh(price, timeperiod=10)
     rl10 = rh(price, timeperiod=10)
@@ -53,6 +53,8 @@ def getengineeredfeatures(data):
     d = {'price': price, 'volume': data["Volume"], 'sma10': sma10, 'sma20': sma20, 'sma100': sma100, 'tema20': tema20, 'tema100':tema100, 'rh10':rh10, 'rl10': rl10, 'RSI10':rsi10, 'mktratioprice': mktratprice, 'mktratioRSI10':mktratiorsi10}
     df = pd.DataFrame(data=d)
     df = df.dropna()
+    if (len(drop) > 0):
+        df.drop(df.columns[drop], axis = 1, inplace=True)
     return df
 #getengineeredfeatures(market)
 #plt.plot(market["Close"])

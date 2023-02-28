@@ -33,8 +33,9 @@ For this project, the new features that are engineered are as follows:
 1. SMA or Simple Moving Average (10 day, 20 day, and 100 day)
 2. TEMA or Triple Exponenetial Moving Average (10 day, 20 day, and 100 day)
 3. RSI or Relative Strength Index
-4. Ratio of S&P500 to Stock Price
-5. Ratio of S&P500 RSI to Stock's RSI
+4. Rolling High and Rolling Low (10 day)
+5. Ratio of S&P500 to Stock Price
+6. Ratio of S&P500 RSI to Stock's RSI
 
 ### Long Short Term Memory Models (LSTM)
 ---
