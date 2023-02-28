@@ -6,7 +6,7 @@ import model as ml
 import matplotlib.pyplot as plt
 
 raw = dg.gethist("AMZN", "20y") #get amazon data from the last 20 years
-data_X, data_Y = dp.prepdata(raw, 10, 1) #prep the raw data. 1st parameter is data, 2nd is the amount of days to train on, and the 3rd is amount days to predict
+data_X, data_Y = dp.prepdata(raw, 10, 5) #prep the raw data. 1st parameter is data, 2nd is the amount of days to train on, and the 3rd is amount days to predict
 
 tdpy = 237 #237 trading days a year
 
