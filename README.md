@@ -8,7 +8,7 @@ This project aims to build a tool, namely a machine learning model to provide th
 
 ## Overview
 
-In this project, I create an AI model to predict stock prices for the future. To start, I collect [stock data](#the-data) from Yahoo Finance using the [yfinance API](https://github.com/ranaroussi/yfinance). Using this data, I also create some helpful indicators that I believe would benefit the prediction capabilities of my model with a technique called [feature engineering](#what-is-feature-engineering). Professional traders do this as well, using indicators like [SMA](https://www.investopedia.com/terms/s/sma.asp) to aid in their trading and investing strategies. I then use this data to train an AI model, which then makes predictions for future stock prices. 
+In this project, I create an artificial [neural network](https://www.investopedia.com/terms/n/neuralnetwork.asp) to predict stock prices for the future. To start, I collect [stock data](#the-data) from Yahoo Finance using the [yfinance API](https://github.com/ranaroussi/yfinance). Using this data, I also create some helpful indicators that I believe would benefit the prediction capabilities of my model with a technique called [feature engineering](#what-is-feature-engineering). Professional traders do this as well, using indicators like [SMA](https://www.investopedia.com/terms/s/sma.asp) to aid in their trading and investing strategies. I then use this data to train the neural network, which then makes predictions for future stock prices. 
 
 ### The Data
 ---
@@ -30,18 +30,17 @@ Feature engineering is a technique where data/computer scientists construct new 
 
 For this project, the new features that are engineered are as follows:
 
-1. SMA or Simple Moving Average (10 day, 20 day, and 100 day)
-2. TEMA or Triple Exponenetial Moving Average (10 day, 20 day, and 100 day)
-3. RSI or Relative Strength Index
+1. SMA or [Simple Moving Average](https://www.investopedia.com/terms/s/sma.asp) (10 day, 20 day, and 100 day)
+2. TEMA or [Triple Exponenetial Moving Average](https://www.investopedia.com/ask/answers/041315/why-triple-exponential-moving-average-tema-important-traders-and-analysts.asp#:~:text=The%20triple%20exponential%20moving%20average%20(TEMA)%20is%20a%20modified%20moving,associated%20with%20traditional%20moving%20averages.) (10 day, 20 day, and 100 day)
+3. RSI or [Relative Strength Index](https://www.investopedia.com/terms/r/rsi.asp)
 4. Rolling High and Rolling Low (10 day)
 5. Ratio of S&P500 to Stock Price
 6. Ratio of S&P500 RSI to Stock's RSI
 
 ### Long Short Term Memory Models (LSTM)
 ---
-*If you don't know what a neural network is, I recommend that you look at this [reference](https://www.investopedia.com/terms/n/neuralnetwork.asp) which looks at neural networks in a financial context.*
 
-For this project specifically, I use a type of recurrent neural network called Long Short Term Memory (LSTM) to make prediction for stock prices. A recurrent neural network is a type of neural network that uses the output from its previous prediction (ie. its prediction for the day before) to influence its next prediction (ie. its prediction for the next day). 
+For this project specifically, I use a type of [recurrent neural network](https://www.ibm.com/topics/recurrent-neural-networks) called Long Short Term Memory (LSTM) to make prediction for stock prices. A recurrent neural network is a type of neural network that uses the output from its previous prediction (ie. its prediction for the day before) to influence its next prediction (ie. its prediction for the next day). 
 
 Unfortunately, RNNs have trouble allowing days from futher in the past to influence their predictions for the future. This is where LSTMs come in. The LSTM is a variation of RNNs which allows for datapoints much further back in time to influence the model's predictions, hence the reference to Long Term Memory in the name LSTM. It also allows recent days to still influence its prediction, balancing between allowing data from further back in time as well as data from the more recent past to make its predictions. 
 
